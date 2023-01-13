@@ -2,8 +2,8 @@ terraform {
   required_version = ">=0.14"
   required_providers {
     snowflake = {
-      source  = "chanzuckerberg/snowflake"
-      version = ">=0.23.1"
+      source  = "Snowflake-Labs/snowflake"
+      version = "0.36.0"
     }
     time = {
       source  = "hashicorp/time"

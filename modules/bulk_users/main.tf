@@ -1,8 +1,8 @@
 terraform {
   required_providers {
     snowflake = {
-      source  = "chanzuckerberg/snowflake"
-      version = ">=0.25.0"
+      source  = "Snowflake-Labs/snowflake"
+      version = "0.36.0"
     }
     random = {
       version = ">=2.2.0"
