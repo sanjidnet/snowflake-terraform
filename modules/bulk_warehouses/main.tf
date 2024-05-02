@@ -2,7 +2,7 @@ terraform {
   required_providers {
     snowflake = {
       source  = "Snowflake-Labs/snowflake"
-      version = "0.36.0"
+      version = "0.88.0"
     }
     time = {
       version = ">=0.7.2"
@@ -33,28 +33,28 @@ resource "time_offset" "monitor_start_times" {
   offset_days = 1
 }
 
-resource "snowflake_resource_monitor" "main" {
-  for_each = toset(local.monitored_warehouses)
-
-  name         = "${each.key}_monitor"
-  credit_quota = 24
-
-  frequency = "DAILY"
-  start_timestamp = formatdate(
-    "YYYY-MM-DD 00:00",
-    time_offset.monitor_start_times[each.key].rfc3339
-  )
-  end_timestamp = null
-
-  notify_triggers            = [100]
-  suspend_triggers           = []
-  suspend_immediate_triggers = []
-
-  // Snowflake will convert the timestamp provided into a
-  // localized format, causing continual errors if not ignored
-  lifecycle {
-    ignore_changes = [
-      start_timestamp
-    ]
-  }
-}
+# resource "snowflake_resource_monitor" "main" {
+#   for_each = toset(local.monitored_warehouses)
+# 
+#   name         = "${each.key}_monitor"
+#   credit_quota = 24
+# 
+#   frequency = "DAILY"
+#   start_timestamp = formatdate(
+#     "YYYY-MM-DD 00:00",
+#     time_offset.monitor_start_times[each.key].rfc3339
+#   )
+#   end_timestamp = null
+# 
+#   notify_triggers            = [100]
+#   suspend_triggers           = []
+#   suspend_immediate_triggers = []
+# 
+#   // Snowflake will convert the timestamp provided into a
+#   // localized format, causing continual errors if not ignored
+#   lifecycle {
+#     ignore_changes = [
+#       start_timestamp
+#     ]
+#   }
+# }

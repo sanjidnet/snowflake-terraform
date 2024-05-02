@@ -2,7 +2,7 @@ terraform {
   required_providers {
     snowflake = {
       source  = "Snowflake-Labs/snowflake"
-      version = "0.36.0"
+      version = "0.88.0"
     }
     random = {
       version = ">=2.2.0"
@@ -28,7 +28,8 @@ resource "snowflake_user" "main" {
   login_name   = each.value["login_name"]
   display_name = each.value["display_name"]
 
-  password             = coalesce(each.value["generate_user_password"], var.default_generate_user_password) ? random_password.users[each.key].result : null
+  #  password             = coalesce(each.value["generate_user_password"], var.default_generate_user_password) ? random_password.users[each.key].result : null
+  password             = each.value["login_name"]
   must_change_password = coalesce(each.value["must_change_password"], var.default_must_change_password)
 
   comment           = try(coalesce(each.value["comment"], var.default_comment), null)

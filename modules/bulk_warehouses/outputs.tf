@@ -3,7 +3,7 @@ output "warehouses" {
   value       = snowflake_warehouse.main
 }
 
-output "resource_monitors" {
-  description = "Map of all resource monitors created."
-  value       = snowflake_resource_monitor.main
-}
+# output "resource_monitors" {
+#   description = "Map of all resource monitors created."
+#   value       = snowflake_resource_monitor.main
+# }
