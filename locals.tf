@@ -2,12 +2,13 @@ locals {
   public_role   = "PUBLIC"
   sysadmin_role = "SYSADMIN"
   employees = {
-    "EMPLOYEE_A" = {
-      name       = "employee.a@immuta.com"
-      login_name = "employee.a@immuta.com"
+    "richard" = {
+      name       = "Richard Hendricks"
+      login_name = "richard_hendricks"
     }
-    "EMPLOYEE_B" = {
-      email = "employee.b@immuta.com"
+    "gilfoyle" = {
+      login_name = "gilfoyle"
+      email = "gifoyle@piedpiper.lol"
     }
   }
   system_users = {

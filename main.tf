@@ -106,7 +106,7 @@ module "bulk_role_grants" {
   grants = {
     READER = {
       roles = [module.bulk_roles.roles["ANALYST"].name]
-      users = [module.employees.users["EMPLOYEE_A"].name]
+      users = [module.employees.users["richard"].name]
     }
   }
   depends_on = [module.bulk_roles]
