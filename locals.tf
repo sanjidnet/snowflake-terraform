@@ -8,7 +8,7 @@ locals {
     }
     "gilfoyle" = {
       login_name = "gilfoyle"
-      email = "gifoyle@piedpiper.lol"
+      email      = "gifoyle@piedpiper.lol"
     }
   }
   system_users = {
