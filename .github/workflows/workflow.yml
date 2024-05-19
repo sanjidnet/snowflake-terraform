@@ -41,7 +41,7 @@ jobs:
       - name: Terraform Plan on Prod for PR
         id: plan
         if: github.event_name == 'pull_request'
-        run: terraform plan -no-color -input=false -var snowflake_user_password='${{ secrets.SNOWFLAKE_PASSWORD }}'
+        run: terraform plan -no-color -input=false -var snowflake_user_password='${{ secrets.SNOWFLAKE_PASSWORD }}' -lock=false
         continue-on-error: true
 
       - name: Update Pull Request
