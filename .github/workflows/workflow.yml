@@ -37,8 +37,8 @@ jobs:
       - name: Terraform Plan on Prod for PR
         id: plan
         if: github.event_name == 'pull_request'
-        run: | 
-          terraform plan -input=false \
+        run: |
+          terraform plan -input=false -no-color \
             -var snowflake_user_password='${{ secrets.SNOWFLAKE_PASSWORD }}'
         continue-on-error: true
 
@@ -79,6 +79,6 @@ jobs:
       - name: Terraform Apply
         id: apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: | 
-          terraform apply -auto-approve -input=false -lock=false \
+        run: |
+          terraform apply -auto-approve -input=false \
             -var snowflake_user_password='${{ secrets.SNOWFLAKE_PASSWORD }}'
