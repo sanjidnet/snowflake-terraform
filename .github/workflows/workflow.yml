@@ -81,6 +81,6 @@ jobs:
       - name: Terraform Apply
         id: apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform apply -auto-approve -input=false
+        run: terraform apply -auto-approve -input=false -lock=false
         env:
           TF_VAR_snowflake_private_key: ${{ secrets.SNOWFLAKE_PASSWORD }}
