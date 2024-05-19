@@ -30,10 +30,6 @@ jobs:
         id: init
         run: terraform init
 
-      # - name: Terraform Format
-      #   id: fmt
-      #   run: terraform fmt -recursive -check
-
       - name: Terraform Validate
         id: validate
         run: terraform validate -no-color
@@ -41,7 +37,9 @@ jobs:
       - name: Terraform Plan on Prod for PR
         id: plan
         if: github.event_name == 'pull_request'
-        run: terraform plan -no-color -input=false -var snowflake_user_password='${{ secrets.SNOWFLAKE_PASSWORD }}' -lock=false
+        run: | 
+          terraform plan -input=false \
+          -var snowflake_user_password='${{ secrets.SNOWFLAKE_PASSWORD }}'
         continue-on-error: true
 
       - name: Update Pull Request
@@ -81,6 +79,6 @@ jobs:
       - name: Terraform Apply
         id: apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform apply -auto-approve -input=false -lock=false
-        env:
-          TF_VAR_snowflake_private_key: ${{ secrets.SNOWFLAKE_PASSWORD }}
+        run: | 
+          terraform apply -auto-approve -input=false -lock=false \ 
+          -var snowflake_user_password='${{ secrets.SNOWFLAKE_PASSWORD }}'
