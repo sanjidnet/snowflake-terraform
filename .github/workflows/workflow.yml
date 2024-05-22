@@ -30,12 +30,14 @@ jobs:
         id: backend
         run: |
           cat > backend.tf << EOF
-          backend "s3" {
-            bucket         = "sanjidnet-tf-state-ap-southeast-2"
-            key            = "bootstrap/terraform.tfstate"
-            dynamodb_table = "dynamo"
-            region         = "ap-southeast-2"
-            encrypt        = "true"
+          terraform {
+            backend "s3" {
+              bucket         = "sanjidnet-tf-state-ap-southeast-2"
+              key            = "bootstrap/terraform.tfstate"
+              dynamodb_table = "dynamo"
+              region         = "ap-southeast-2"
+              encrypt        = "true"
+            }
           }
           EOF
       
