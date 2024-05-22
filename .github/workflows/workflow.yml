@@ -25,6 +25,21 @@ jobs:
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
+
+      - name: Setup Terraform Backend
+        id: backend
+        run: |
+          cat > backend.tf << EOF
+          terraform {
+            backend "s3" {
+              bucket         = "sanjidnet-tf-state-ap-southeast-2"
+              key            = "bootstrap/terraform.tfstate"
+              dynamodb_table = "dynamo"
+              region         = "ap-southeast-2"
+              encrypt        = "true"
+            }
+          }
+          EOF
       
       - name: Terraform Init
         id: init
@@ -43,7 +58,7 @@ jobs:
         continue-on-error: true
 
       - name: Update Pull Request
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         if: github.event_name == 'pull_request'
         env:
           PLAN: "${{ steps.plan.outputs.stdout }}"
@@ -58,7 +73,7 @@ jobs:
             <details><summary>Show Plan</summary>
 
             \`\`\`terraform\n
-            ${process.env.PLAN}
+            ## ${process.env.PLAN}
             \`\`\`
 
             </details>

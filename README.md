@@ -26,3 +26,6 @@ Some great content from dbt Labs, whether you use Terraform or not.
 - dbt Blog: [How we configure Snowflake](https://blog.getdbt.com/how-we-configure-snowflake/)
 - dbt Discourse: [Setting up Snowflake - the exact grant statements we run](https://discourse.getdbt.com/t/setting-up-snowflake-the-exact-grant-statements-we-run/439)
 - dbt Blog: [Five principles that will keep your data warehouse organized](https://blog.getdbt.com/five-principles-that-will-keep-your-data-warehouse-organized/)
+- Snowflake's [Quickstart with Terraform](https://quickstarts.snowflake.com/guide/terraforming_snowflake) 
+- Snowflake's tutorial [on YouTube](https://www.youtube.com/watch?v=chqyASQ_Rrg) and [the GitHub repo](https://github.com/sfc-gh-sekim/cicd-snowflake-with-terraform-demo)
+
