@@ -1,7 +1,6 @@
 variable "snowflake_account" {
   description = "The Snowflake account for resources to be loaded into."
   type        = string
-  default     = "ge53795"
 }
 
 variable "snowflake_region" {
