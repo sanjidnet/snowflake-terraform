@@ -7,7 +7,7 @@ terraform {
   }
 
   backend "s3" {
-    # profile        = "sanjid_mac"
+    profile        = "sanjid_mac"
     bucket         = "sanjidnet-tf-state-ap-southeast-2"
     key            = "bootstrap/terraform.tfstate"
     dynamodb_table = "dynamo"
