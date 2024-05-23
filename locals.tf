@@ -6,9 +6,9 @@ locals {
       name       = "Richard Hendricks"
       login_name = "richard_hendricks"
     }
-    "elrich" = {
-      login_name = "elrich"
-      email      = "elrich@piedpiper.lol"
+    "big_head" = {
+      login_name = "big_head"
+      email      = "big@piedpiper.lol"
     }
   }
   system_users = {
