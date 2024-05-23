@@ -10,9 +10,9 @@ locals {
       login_name = "gilfoyle"
       email      = "gifoyle@piedpiper.lol"
     }
-    "haley" = {
-      login_name = "haley"
-      email      = "haley@piedpiper.lol"
+    "elrich" = {
+      login_name = "elrich"
+      email      = "elrich@piedpiper.lol"
     }
   }
   system_users = {
