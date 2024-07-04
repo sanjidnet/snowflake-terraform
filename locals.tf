@@ -11,6 +11,10 @@ locals {
       login_name = "big_head"
       email      = "big@piedpiper.lol"
     }
+    "levy_levin" = {
+      login_name = "levy"
+      email      = "levy@piedpiper.lol"
+    }
   }
   system_users = {
     "LOOKER_USER"   = {}
