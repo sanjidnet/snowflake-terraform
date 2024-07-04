@@ -5,6 +5,7 @@ locals {
     "richard" = {
       name       = "Richard Hendricks"
       login_name = "richard_hendricks"
+      email      = "richard@piedpiper.lol"
     }
     "big_head" = {
       login_name = "big_head"
